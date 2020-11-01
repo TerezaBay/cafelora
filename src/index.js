@@ -2,7 +2,6 @@ import './index.html';
 import './style.css';
 
 // import { LayerList } from './Layer_LayerList/script.js';
-import { Drink } from './Drink/script.js';
 import { DrinkList } from './Drink/script.js';
 
 console.log('funguju!');
@@ -21,6 +20,7 @@ navLinks.forEach((navLink) => {
   });
 });
 
+// pole s údaji pro jednotlivé nápoje pro komponenty Layer, LayerList, Drink a DrinkList
 const drinkMeta = [
   {
     id: 'cappuccino',
@@ -58,6 +58,11 @@ const drinkMeta = [
   },
 ];
 
-(DrinkList({items: drinkMeta}));
+// načtení API se seznamem nápojů a jejich předání komponentě DrinkList
+const fetchDrinks =() => {
+  fetch("http://cafelora.kodim.cz/api/drinks").then((response) => response.json()).then((data) => {
+  DrinkList({items: data})
+  })
+} 
 
-
+fetchDrinks()
