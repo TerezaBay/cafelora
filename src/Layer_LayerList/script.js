@@ -14,7 +14,6 @@ export const Layer = (props) => {
 
 export const LayerList = (props) => {
   let result = ""
-
   props.items.forEach((item) => {
     result += Layer(item);
   })

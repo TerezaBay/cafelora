@@ -34,3 +34,12 @@ export const Drink = (props) => {
 
   return drinkDiv;
 };
+
+// komponenta DrinkList pro procházení jednotlivých nápojů
+export const DrinkList = (props) => {
+  const drinksListDiv = document.querySelector('.drinks-list');
+  props.items.forEach((item) => {
+  drinksListDiv.appendChild(Drink(item));
+  });
+}
+// komponenta Drink vrací DOM element, takže DrinkList musím upravit tak, aby mi to přímo appendovalo komponentu Drink - v dalším souboru pak jenom mohu volat
