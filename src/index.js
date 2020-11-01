@@ -3,6 +3,15 @@ import './style.css';
 
 console.log('funguju!');
 
-document.querySelector("#nav-btn").addEventListener("click", () => {
-  
-})
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('nav a');
+
+document.querySelector('#nav-btn').addEventListener('click', () => {
+  nav.classList.toggle('nav-closed');
+});
+
+navLinks.forEach((navLink) => {
+  navLink.addEventListener('click', () => {
+    nav.classList.toggle('nav-closed');
+  });
+});
