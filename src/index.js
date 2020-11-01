@@ -1,6 +1,9 @@
 import './index.html';
 import './style.css';
 
+import {Layer} from "./Layer_LayerList";
+import {LayerList} from "./Layer_LayerList";
+
 console.log('funguju!');
 
 // rozbalování navigace pro mobil
@@ -32,18 +35,7 @@ if (ordered === false) {
   ordered = !ordered
 })
 
-// komponenty pro ingredience
-const Layer = (props) => {
-  return `
-  <div class="layer">
-      <div
-        class="layer__color"
-        style="background-color: ${props.color}"
-      ></div>
-    <div class="layer__label">${props.label}</div>
-  </div>`
-}
-
+// data pro Layer a LayerList
 const drinkMeta = [
   {
     color: '#feeeca',
@@ -59,13 +51,6 @@ const drinkMeta = [
   }
 ];
 
-const LayerList = (props) => {
-  let result = ""
-
-  props.items.forEach((item) => {
-    result += Layer(item);
-  })
-  return result
-}
-
 document.querySelector(".drink__info").innerHTML += LayerList({items: drinkMeta})
+
+// 
